@@ -1,0 +1,42 @@
+# Held-out events used by the eval harness.
+# Each event lists a pre-event period, an observation period, and the facts
+# we expect the agents to surface. Scored qualitatively by an LLM-judge plus
+# manual spot-check.
+
+- id: spirit_gtf_groundings
+  carrier: NK
+  pre_period: { year: 2023, quarter: 1 }
+  obs_period: { year: 2024, quarter: 3 }
+  expected_facts:
+    - Spirit's total departures fell materially (>10%) between these quarters.
+    - The decline was concentrated in A320neo-family aircraft.
+    - Capacity reduction is the primary cause, not demand collapse.
+    - Pratt & Whitney GTF (PW1100G) inspections are the underlying driver.
+
+- id: jetblue_spirit_merger_block
+  carrier: B6  # JetBlue
+  pre_period: { year: 2023, quarter: 4 }
+  obs_period: { year: 2024, quarter: 2 }
+  counterfactual: merger_approved
+  expected_facts:
+    - The proposed merger was blocked by Judge Young in Jan 2024.
+    - Spirit's network would have been folded into JetBlue (NK routes transferred).
+    - Combined network would have significant slot positions at FLL and the NY airports.
+
+- id: southwest_newark_exit
+  carrier: WN
+  pre_period: { year: 2019, quarter: 2 }
+  obs_period: { year: 2019, quarter: 4 }
+  expected_facts:
+    - Southwest fully exited EWR in November 2019.
+    - Slot reallocation and the 737 MAX grounding are the primary causes.
+    - WN routes from EWR were dropped, not transferred to other WN airports.
+
+- id: frontier_2022_expansion
+  carrier: F9
+  pre_period: { year: 2021, quarter: 4 }
+  obs_period: { year: 2022, quarter: 3 }
+  expected_facts:
+    - Frontier added a substantial number of new routes in this window.
+    - Expansion was concentrated in leisure markets (FL, NV, CO).
+    - Post-COVID leisure demand recovery is the primary driver.
